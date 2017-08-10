@@ -10,6 +10,7 @@ namespace Nancy.AspNetCore.Session.Sample
     {
         protected override void ApplicationStartup(TinyIoCContainer container, IPipelines pipelines)
         {
+            //enable AspNetCore Session in Nancy
             NancyAspNetCoreSession.Enable(pipelines);
             base.ApplicationStartup(container, pipelines);
         }

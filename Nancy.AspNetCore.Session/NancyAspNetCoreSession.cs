@@ -14,20 +14,41 @@ namespace Nancy.AspNetCore.Session
 {
     public class NancyAspNetCoreSession : NancySession.ISession
     {
+        internal const string HAS_CHANGED_KEY = "__haschanged";
         internal class NancyAspNetCoreSessionIterator : IEnumerator<KeyValuePair<string, object>>
         {
-            int _currentIndex = 0;
+            int _currentIndex = -1;
 
+            string[] _publickeys;
+            private string[] publickeys
+            {
+                get
+                {
+                    if (_session.hasChanged)
+                    {
+                        _publickeys = _session._httpSession.Keys.Where(k => k != HAS_CHANGED_KEY).ToArray();
+                    }
+                    return _publickeys;
+                }
+            }
+            private Http.ISession httpSession
+            {
+                get
+                {
+                    return _session._httpSession;
+                }
+            }
             public KeyValuePair<string, object> Current
             {
                 get
                 {
-                    string k = _session.Keys.Skip(_currentIndex).FirstOrDefault();
-                    if (!string.IsNullOrEmpty(k))
+                    string key = publickeys.Skip(_currentIndex).FirstOrDefault();
+
+                    if (!string.IsNullOrEmpty(key))
                     {
-                        if (_session.TryGetValue(k, out byte[] b))
+                        if (httpSession.TryGetValue(key, out byte[] b))
                         {
-                            return new KeyValuePair<string, object>(k, AsObject(b));
+                            return new KeyValuePair<string, object>(key, AsObject(b));
                         }
                     }
                     throw new IndexOutOfRangeException();
@@ -48,7 +69,7 @@ namespace Nancy.AspNetCore.Session
 
             public bool MoveNext()
             {
-                if (_currentIndex < _session.Keys.Count() - 1)
+                if (_currentIndex < publickeys.Length-1)
                 {
                     _currentIndex++;
                     return true;
@@ -61,13 +82,13 @@ namespace Nancy.AspNetCore.Session
 
             public void Reset()
             {
-                _currentIndex = 0;
+                _currentIndex = -1;
             }
 
-            Http.ISession _session;
-            internal NancyAspNetCoreSessionIterator(Http.ISession httpSession)
+            NancyAspNetCoreSession _session;
+            internal NancyAspNetCoreSessionIterator(NancyAspNetCoreSession session)
             {
-                _session = httpSession;
+                _session = session;
             }
         }
 
@@ -96,7 +117,7 @@ namespace Nancy.AspNetCore.Session
             get
             {
 
-                if (_httpSession.TryGetValue("_haschanged", out byte[] b))
+                if (_httpSession.TryGetValue(HAS_CHANGED_KEY, out byte[] b))
                 {
                     return (bool)AsObject(b);
                 }
@@ -106,11 +127,11 @@ namespace Nancy.AspNetCore.Session
             set
             {
                 byte[] bhaschanged = AsBytes(value);
-                _httpSession.Set("_haschanged", bhaschanged);
+                _httpSession.Set(HAS_CHANGED_KEY, bhaschanged);
             }
         }
 
-        public int Count => _httpSession.Keys.Count();
+        public int Count => _httpSession.Keys.Count() - 1;
 
         public bool HasChanged => hasChanged;
 
@@ -149,17 +170,17 @@ namespace Nancy.AspNetCore.Session
 
         public IEnumerator<KeyValuePair<string, object>> GetEnumerator()
         {
-            return GetEnumerator();
+            return new NancyAspNetCoreSessionIterator(this);
         }
 
         IEnumerator IEnumerable.GetEnumerator()
         {
-            return new NancyAspNetCoreSessionIterator(_httpSession);
+            return new NancyAspNetCoreSessionIterator(this);
         }
         
         private static byte[] AsBytes(object value)
         {            
-            string json = JsonConvert.SerializeObject(value, new JsonSerializerSettings { TypeNameHandling = TypeNameHandling.Auto }) ;
+            string json = JsonConvert.SerializeObject(value, new JsonSerializerSettings { TypeNameHandling = TypeNameHandling.All }) ;
 
             byte[] bJson = UnicodeEncoding.Unicode.GetBytes(json);
             return bJson;
@@ -170,7 +191,7 @@ namespace Nancy.AspNetCore.Session
             object value = null;
             string json=UnicodeEncoding.Unicode.GetString(data);
             //string json = Convert.ToBase64String(data);
-            value = JsonConvert.DeserializeObject(json, new JsonSerializerSettings { TypeNameHandling = TypeNameHandling.Auto });
+            value = JsonConvert.DeserializeObject(json, new JsonSerializerSettings { TypeNameHandling = TypeNameHandling.All });
 
             return value;
         }
@@ -192,7 +213,7 @@ namespace Nancy.AspNetCore.Session
         private static async Task SaveSession(NancyContext context)
         {
             var session = context.Request.Session as NancyAspNetCoreSession;
-
+            session.hasChanged = false;
             await session?.SaveAsync();
         }
     }

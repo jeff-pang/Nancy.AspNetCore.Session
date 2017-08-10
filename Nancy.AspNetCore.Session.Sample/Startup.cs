@@ -10,9 +10,13 @@ namespace Nancy.AspNetCore.Session.Sample
         public void ConfigureServices(IServiceCollection services)
         {
             services
+                //Add in-proc memory Session Cache Middleware, 
+                //this can be any other middleware such as Redis Cache
                 .AddDistributedMemoryCache()
+                //Add AspNetCore Session
                 .AddSession()
-                .AddNancyAspnetCoreSession();
+                //Wire up AspNetCore with Nancy
+                .AddNancyAspnetCoreSession(); 
         }
 
         public void Configure(IApplicationBuilder app)
