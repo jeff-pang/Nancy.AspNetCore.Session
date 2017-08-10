@@ -1,3 +1,6 @@
+before_build:
+  - dotnet restore
+
 after_build:
   - dotnet pack .\Nancy.AspNetCore.Session --configuration Release
   - dotnet nuget push .\Nancy.AspNetCore.Session\bin\Release\*.nupkg -k 828b3481-6e0f-41ab-a00a-2e887b37097e --verbosity detailed
