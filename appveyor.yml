@@ -6,9 +6,15 @@ environment:
     secure: Nj4wQlfGuxmQPcqg3FYGn8weQnQ3gGQqhqUmvKR9xSwVFDh56RavJ05UgB3NK1ac
     
 after_build:
-  - ps: |
+
+- ps: >-
+
     if($env:APPVEYOR_REPO_BRANCH -eq 'master')
-    {
-        dotnet pack .\Nancy.AspNetCore.Session --configuration Release
-        dotnet nuget push .\Nancy.AspNetCore.Session\bin\Release\*.nupkg -k %API_KEY_SECRET% -s https://www.nuget.org/api/v2/package
-    }
+
+        {
+
+            dotnet pack .\Nancy.AspNetCore.Session --configuration Release
+
+            dotnet nuget push .\Nancy.AspNetCore.Session\bin\Release\*.nupkg -k %API_KEY_SECRET% -s https://www.nuget.org/api/v2/package
+
+        }
