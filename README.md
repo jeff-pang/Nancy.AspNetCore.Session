@@ -5,6 +5,14 @@ This is a lightweight middleware that integrates Nancy Sessions with AspNetCore 
 
 To enable this first in your `Startup` class's `ConfigureServices` do the following.
 
+### Install
+
+Nancy AspNetCore Session is available on NuGet:
+
+```
+Install-Package Nancy.AspNetCore.Session
+```
+
 #### Step 1.
 
 Call `services.AddNancyAspnetCoreSession();` e.g:
