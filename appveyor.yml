@@ -3,7 +3,7 @@ before_build:
   
 environment:
   API_KEY_SECRET:
-    secure: 8IyLdlBioEqLdPoEBE/gsOu8LrTneOOrI7IjKzDXclwdoJfPtWWcFj4gdrFgKU1u
+    secure: Nj4wQlfGuxmQPcqg3FYGn8weQnQ3gGQqhqUmvKR9xSwVFDh56RavJ05UgB3NK1ac
     
 after_build:
   - dotnet pack .\Nancy.AspNetCore.Session --configuration Release
