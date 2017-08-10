@@ -17,7 +17,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Nancy.AspNetCore.Sessions\Nancy.AspNetCore.Session.csproj" />
+    <ProjectReference Include="..\Nancy.AspNetCore.Session\Nancy.AspNetCore.Session.csproj" />
   </ItemGroup>
 
 </Project>
