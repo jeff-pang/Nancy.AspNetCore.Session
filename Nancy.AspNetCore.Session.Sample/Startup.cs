@@ -23,6 +23,7 @@ namespace Nancy.AspNetCore.Session.Sample
         {
             app
             .UseSession()
+            .UseNancyAspnetCoreSession()
             .UseOwin(x => {
                 x.UseNancy();
             });

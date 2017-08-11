@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using System.Linq;
 using NancySession = Nancy.Session;
 using Microsoft.AspNetCore.Http;
-using Http = Microsoft.AspNetCore.Http;
 using Newtonsoft.Json;
 using System.Threading.Tasks;
 using Nancy.Bootstrapper;
@@ -31,7 +30,7 @@ namespace Nancy.AspNetCore.Session
                     return _publickeys;
                 }
             }
-            private Http.ISession httpSession
+            private ISession httpSession
             {
                 get
                 {
@@ -92,7 +91,7 @@ namespace Nancy.AspNetCore.Session
             }
         }
 
-        Http.ISession _httpSession;
+        ISession _httpSession;
         public object this[string key]
         {
             get
@@ -135,7 +134,7 @@ namespace Nancy.AspNetCore.Session
 
         public bool HasChanged => hasChanged;
 
-        internal NancyAspNetCoreSession(Http.ISession httpSession)
+        internal NancyAspNetCoreSession(ISession httpSession)
         {
             _httpSession = httpSession;
             hasChanged = false;
@@ -196,15 +195,15 @@ namespace Nancy.AspNetCore.Session
             return value;
         }
         
-        public static void Enable(IPipelines pipelines)
+        public static void Enable(IPipelines pipelines,IHttpContextAccessor httpCtxAcs)
         {
-            pipelines.BeforeRequest.AddItemToStartOfPipeline(ctx => LoadSession(ctx));
+            pipelines.BeforeRequest.AddItemToStartOfPipeline(ctx => LoadSession(ctx, httpCtxAcs.HttpContext));
             pipelines.AfterRequest.AddItemToEndOfPipeline(async ctx => await SaveSession(ctx));
         }
 
-        private static Response LoadSession(NancyContext context)
+        private static Response LoadSession(NancyContext context, HttpContext httpCtx)
         {
-            ISession session = InternalHttpContextAccessorSingleton.Instance.HttpContextAccessor.HttpContext.Session;
+            ISession session = httpCtx.Session;
             context.Request.Session = new NancyAspNetCoreSession(session);
 
             return null;
