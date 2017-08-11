@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.26430.14
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Sample", "Sample", "{FC23558F-4BB3-4CC3-AC40-C3AB6954921C}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Sample", "Sample", "{6113384F-BB46-4E67-85D5-6F77CC6C5053}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Nancy.AspNetCore.Session", "Nancy.AspNetCore.Session\Nancy.AspNetCore.Session.csproj", "{8FB78EA2-762C-4FAA-9CD6-EE02D3D369A5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Nancy.AspNetCore.Session.Sample", "Nancy.AspNetCore.Session.Sample\Nancy.AspNetCore.Session.Sample.csproj", "{CBF6B9A4-1CD5-4610-B15B-3C8B3EB0B879}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nancy.AspNetCore.Session.Sample", "Nancy.AspNetCore.Session.Sample\Nancy.AspNetCore.Session.Sample.csproj", "{8FDBEC70-7EB3-4294-9834-81CA9CB16A5D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Nancy.AspNetCore.Session", "Nancy.AspNetCore.Session\Nancy.AspNetCore.Session.csproj", "{4756EC48-0467-4D08-A651-134170B4EADE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,19 +15,19 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{8FB78EA2-762C-4FAA-9CD6-EE02D3D369A5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{8FB78EA2-762C-4FAA-9CD6-EE02D3D369A5}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{8FB78EA2-762C-4FAA-9CD6-EE02D3D369A5}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{8FB78EA2-762C-4FAA-9CD6-EE02D3D369A5}.Release|Any CPU.Build.0 = Release|Any CPU
-		{8FDBEC70-7EB3-4294-9834-81CA9CB16A5D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{8FDBEC70-7EB3-4294-9834-81CA9CB16A5D}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{8FDBEC70-7EB3-4294-9834-81CA9CB16A5D}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{8FDBEC70-7EB3-4294-9834-81CA9CB16A5D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CBF6B9A4-1CD5-4610-B15B-3C8B3EB0B879}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CBF6B9A4-1CD5-4610-B15B-3C8B3EB0B879}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CBF6B9A4-1CD5-4610-B15B-3C8B3EB0B879}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CBF6B9A4-1CD5-4610-B15B-3C8B3EB0B879}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4756EC48-0467-4D08-A651-134170B4EADE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4756EC48-0467-4D08-A651-134170B4EADE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4756EC48-0467-4D08-A651-134170B4EADE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4756EC48-0467-4D08-A651-134170B4EADE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{8FDBEC70-7EB3-4294-9834-81CA9CB16A5D} = {FC23558F-4BB3-4CC3-AC40-C3AB6954921C}
+		{CBF6B9A4-1CD5-4610-B15B-3C8B3EB0B879} = {6113384F-BB46-4E67-85D5-6F77CC6C5053}
 	EndGlobalSection
 EndGlobal
