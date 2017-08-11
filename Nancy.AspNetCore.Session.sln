@@ -5,9 +5,9 @@ VisualStudioVersion = 15.0.26430.14
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Sample", "Sample", "{FC23558F-4BB3-4CC3-AC40-C3AB6954921C}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Nancy.AspNetCore.Session.Sample", "Nancy.AspNetCore.Session.Sample\Nancy.AspNetCore.Session.Sample.csproj", "{EC4C56AA-11AF-46CF-B839-B1E44B3FE26D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Nancy.AspNetCore.Session", "Nancy.AspNetCore.Session\Nancy.AspNetCore.Session.csproj", "{8FB78EA2-762C-4FAA-9CD6-EE02D3D369A5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nancy.AspNetCore.Session", "Nancy.AspNetCore.Session\Nancy.AspNetCore.Session.csproj", "{8FB78EA2-762C-4FAA-9CD6-EE02D3D369A5}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nancy.AspNetCore.Session.Sample", "Nancy.AspNetCore.Session.Sample\Nancy.AspNetCore.Session.Sample.csproj", "{8FDBEC70-7EB3-4294-9834-81CA9CB16A5D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,19 +15,19 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{EC4C56AA-11AF-46CF-B839-B1E44B3FE26D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{EC4C56AA-11AF-46CF-B839-B1E44B3FE26D}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{EC4C56AA-11AF-46CF-B839-B1E44B3FE26D}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{EC4C56AA-11AF-46CF-B839-B1E44B3FE26D}.Release|Any CPU.Build.0 = Release|Any CPU
 		{8FB78EA2-762C-4FAA-9CD6-EE02D3D369A5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{8FB78EA2-762C-4FAA-9CD6-EE02D3D369A5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8FB78EA2-762C-4FAA-9CD6-EE02D3D369A5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8FB78EA2-762C-4FAA-9CD6-EE02D3D369A5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8FDBEC70-7EB3-4294-9834-81CA9CB16A5D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8FDBEC70-7EB3-4294-9834-81CA9CB16A5D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8FDBEC70-7EB3-4294-9834-81CA9CB16A5D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8FDBEC70-7EB3-4294-9834-81CA9CB16A5D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{EC4C56AA-11AF-46CF-B839-B1E44B3FE26D} = {FC23558F-4BB3-4CC3-AC40-C3AB6954921C}
+		{8FDBEC70-7EB3-4294-9834-81CA9CB16A5D} = {FC23558F-4BB3-4CC3-AC40-C3AB6954921C}
 	EndGlobalSection
 EndGlobal
