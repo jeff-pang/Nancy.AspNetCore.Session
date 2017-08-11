@@ -15,7 +15,7 @@ Install-Package Nancy.AspNetCore.Session
 
 #### Step 1.
 
-Call `services.AddNancyAspnetCoreSession();` in Startup's `ConfigureServices` like the following:
+Call `services.AddNancyAspnetCoreSession()` in Startup's `ConfigureServices` like the following:
 
 ```C#
 public void ConfigureServices(IServiceCollection services)
@@ -33,16 +33,18 @@ public void ConfigureServices(IServiceCollection services)
 
 #### Step 2.
 
-Create a custom nancy bootstrapper by inheriting the `DefaultNancyBootstrapper`. Then enable the session.
+Call `app.UseNancyAspnetCoreSession()` in Startup's `Configure` like the following
 
 ```C#
-public class SampleNancyBootstrapper:DefaultNancyBootstrapper
+public void Configure(IApplicationBuilder app)
 {
-    protected override void ApplicationStartup(TinyIoCContainer container, IPipelines pipelines)
-    {
-        NancyAspNetCoreSession.Enable(pipelines);
-        base.ApplicationStartup(container, pipelines);
-    }
+	app
+	.UseSession()
+    //Wire up AspNetCore with Nancy
+	.UseNancyAspnetCoreSession()
+	.UseOwin(x => {
+		x.UseNancy();
+	});
 }
 ```
 
