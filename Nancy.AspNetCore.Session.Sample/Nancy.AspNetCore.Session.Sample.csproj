@@ -3,6 +3,9 @@
   <PropertyGroup>
     <OutputType>Exe</OutputType>
     <TargetFramework>netcoreapp2.0</TargetFramework>
+    <Authors>Jeff Pang</Authors>
+    <Description>Usage sample for Nancy.AspNetCore.Session</Description>
+    <Version>2.0.0</Version>
   </PropertyGroup>
 
   <ItemGroup>
