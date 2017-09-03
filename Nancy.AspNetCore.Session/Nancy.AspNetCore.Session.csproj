@@ -2,17 +2,19 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard1.6</TargetFramework>
-    <AssemblyVersion>1.1.0.0</AssemblyVersion>
-    <FileVersion>1.1.0.0</FileVersion>
-    <Version>1.1.0</Version>
+    <AssemblyVersion>1.1.1.0</AssemblyVersion>
+    <FileVersion>1.1.1.0</FileVersion>
+    <Version>1.1.1</Version>
     <PackageLicenseUrl>https://github.com/jeff-pang/Nancy.AspNetCore.Session/blob/master/LICENSE</PackageLicenseUrl>
     <PackageProjectUrl>https://github.com/jeff-pang/Nancy.AspNetCore.Session</PackageProjectUrl>
-    <PackageIconUrl>https://github.com/jeff-pang/Nancy.AspNetCore.Session/Assets/icon.png</PackageIconUrl>
+    <PackageIconUrl>https://raw.githubusercontent.com/jeff-pang/Nancy.AspNetCore.Session/master/Assets/icon.png</PackageIconUrl>
     <RepositoryUrl>https://github.com/jeff-pang/Nancy.AspNetCore.Session</RepositoryUrl>
+    <Description>Nancy Extension that integrates AspNetCore sessions into Nancy Sessions.</Description>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Nancy.AspNetCore.Http" Version="1.0.0" />
+    <PackageReference Include="Nancy.AspNetCore.Http" Version="1.0.1" />
   </ItemGroup>
 
 </Project>
